@@ -50,7 +50,7 @@
         }, function (data) {
           localStorage.token = data.data;
           self.loging = false;
-          self.$router.push({path: '/ordering'})
+          self.$router.push({path: '/account/index'})
         },function () {
           self.loging = false;
         })
