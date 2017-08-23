@@ -9,7 +9,7 @@
     <div class="login-content">
       <group label-width="4.5em" label-margin-right="2em" label-align="right">
         <x-input class="login-input" title="用户名" v-model="account_name"></x-input>
-        <x-input class="login-input" title="密码" v-model="password"></x-input>
+        <x-input type="password" class="login-input" title="密码" v-model="password"></x-input>
       </group>
 
       <x-button class="bgreen fwhite login-btn" :show-loading="loging" :disabled="loging" @click.native="login">登录</x-button>
@@ -20,6 +20,7 @@
 
 <script>
   import {GroupTitle, Group, XInput, XButton} from 'vux'
+  import Request from '../../assets/js/request.js'
   //  import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem, Divider } from 'vux'
   export default {
     components: {
@@ -40,7 +41,19 @@
     },
     methods: {
       login: function () {
-        this.loging = true;
+        let self = this;
+        self.loging = true;
+        Request.post('/api/auth/login', {
+//          'account_id': 1
+          'account_name' : self.account_name,
+          'password' : self.password,
+        }, function (data) {
+          localStorage.token = data.data;
+          self.loging = false;
+          self.$router.push({path: '/ordering'})
+        },function () {
+          self.loging = false;
+        })
       }
     }
   }
