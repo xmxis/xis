@@ -14,6 +14,7 @@ export default {
 @import '~vux/src/styles/reset.less';
 @import './assets/css/custom.css';
 @import './assets/css/style.css';
+@import './assets/css/stylesheet.css';
 
 /*@import './assets/css/bootstrap.min.css';*/
 
