@@ -5,6 +5,7 @@ import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
 import Login from './views/auth/Login'
+import UserInfo from './views/auth/UserInfo'
 import Ordering from './views/food/Ordering'
 
 import 'vue-layer-mobile/need/layer.css'
@@ -22,6 +23,7 @@ const routes = [
     path: '/ordering',
     component: Ordering
   },
+
 ]
 
 const router = new VueRouter({
