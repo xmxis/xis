@@ -3,7 +3,7 @@
     <tabbar>
       <tabbar-item>
         <!--<img slot="icon" src="../assets/demo/icon_nav_button.png">-->
-        <span slot="label" link="/account/index">首页</span>
+        <span slot="label" link="/account/index"  @click="$router.push({path: '/account/index'})">首页</span>
       </tabbar-item>
       <tabbar-item link="/ordering">
         <!--<img slot="icon" src="../assets/demo/icon_nav_msg.png">-->

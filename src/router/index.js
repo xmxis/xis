@@ -4,6 +4,7 @@ import Login from '../views/auth/Login'
 import Ordering from '../views/food/Ordering'
 import Index from '../views/account/Index'
 import Card from '../views/account/Card'
+import CardRecore from '../views/account/CardRecore'
 import Center from '../views/account/Center'
 // import Hello from '@/components/Hello'
 
@@ -27,6 +28,10 @@ export default new Router({
       path: '/account/card',
       component: Card
     },
+    {
+      path: '/account/cardrecord',
+      component: CardRecore
+    },    
     {
       path: '/account/center',
       component: Center
