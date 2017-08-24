@@ -57,7 +57,7 @@
       <popup v-model="show_shop_car" position="bottom" max-height="50%">
         <div class="alert-car-title h40">
           <div class="f222 fs14 fw600">购物车</div>
-          <div class="f999 fs13 empty-car">
+          <div class="f999 fs13 empty-car" @click="emptyShopCar">
             <img src="../../assets/images/trash.png" class="h14 mr5">
             <div>清空</div>
           </div>
@@ -71,9 +71,9 @@
               <div class="mt8">
                 <div class="fred fl fs16 lh23 food-price">￥<span class="food-price-span">{{item.price}}</span></div>
                 <div class="fr playflex">
-                  <img src="../../assets/images/substract.png" class="w23 h23 sub-btn">
+                  <img src="../../assets/images/substract.png" class="w23 h23 sub-btn" @click="carRemoveSt(item)">
                   <div class="food-amount">{{item.amount}}</div>
-                  <img src="../../assets/images/plus.png" class="w23 h23 plus-btn">
+                  <img src="../../assets/images/plus.png" class="w23 h23 plus-btn" @click="carAddSt(item)">
                 </div>
                 <div class="clear"></div>
               </div>
@@ -86,8 +86,10 @@
     </div>
 
     <div v-transfer-dom>
-      <popup id="rule-pop" v-model="show_rule_pop" position="bottom">
+      <popup id="rule-pop"  v-model="show_rule_pop" position="bottom">
         <div class="con pb50" >
+          <popup-header left-text="取消"  title="自由搭配"></popup-header>
+
           <img src="../../assets/images/big-img.png" class="widthp100">
           <div class="pt15 pr20 pl20">
             <div class=" mb15">
@@ -171,7 +173,7 @@
 </template>
 
 <script>
-  import {TransferDom, Tab, TabItem, Group, Popup, Cell, Panel,XButton} from 'vux'
+  import {TransferDom, Tab, TabItem, Group, Popup, Cell, Panel,XButton,PopupHeader} from 'vux'
   import Request from '../../assets/js/request.js'
   import slayer from '../../assets/js/s_layer.js'
 
@@ -187,7 +189,8 @@
       Popup,
       Cell,
       Panel,
-      XButton
+      XButton,
+      PopupHeader
     },
     data() {
       return {
@@ -351,6 +354,22 @@
           }
         });
       },
+      carAddSt : function (data) {
+        let self = this;
+        this.setting.list.forEach(function (item, index) {
+          if (item.id == data.id) {
+            self.addSt(item);
+          }
+        });
+      },
+      carRemoveSt : function (data) {
+        let self = this;
+        this.setting.list.forEach(function (item, index) {
+          if (item.id == data.id) {
+            self.removeSt(item);
+          }
+        });
+      },
       ruleSelect: function (item) {
         this.clearRule();
         this.rule.current = item;
@@ -418,6 +437,12 @@
           } else {
             slayer.alert('系统繁忙，请稍后再试')
           }
+        })
+      },
+      emptyShopCar : function () {
+        let self = this;
+        slayer.confirm('确定要清空购物车吗？',function () {
+          self.setting.selected = [];
         })
       },
       computed_ss_count: function (food) { //setting select count

@@ -6,6 +6,7 @@ import Index from '../views/account/Index'
 import Card from '../views/account/Card'
 import CardRecore from '../views/account/CardRecore'
 import Center from '../views/account/Center'
+import Recharge from '../views/account/Recharge'
 // import Hello from '@/components/Hello'
 
 Vue.use(Router)
@@ -35,6 +36,10 @@ export default new Router({
     {
       path: '/account/center',
       component: Center
+    },
+    {
+      path: '/account/recharge',
+      component: Recharge
     },
 
   ]

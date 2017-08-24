@@ -27,6 +27,15 @@ module.exports = {
     autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // proxyTable: {  //测试
+    //   '/api': {
+    //     target: 'http://xis-api.chenshuxun.com/',
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api': ''
+    //     }
+    //   }
+    // },
     proxyTable: {
       '/api': {
         target: 'http://xis-api.com/',
