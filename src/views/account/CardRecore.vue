@@ -89,3 +89,8 @@
 
     }
 </script>
+<style>
+  .weui-tabbar{
+    position: fixed;
+  }
+</style>

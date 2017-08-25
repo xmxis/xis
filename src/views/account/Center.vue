@@ -7,10 +7,10 @@
       </div>
     </div>
     <group >
-      <cell class="module-item" title="我的校园卡" is-link>
+      <cell link="/account/card" class="module-item" title="我的校园卡" is-link>
         <img slot="icon" src="../../assets/images/blue_icon.png">
       </cell>
-      <cell class="module-item"  title="我的交易记录" is-link>
+      <cell link="/account/cardrecord?cardId=all" class="module-item"  title="我的交易记录" is-link>
         <img slot="icon"  src="../../assets/images/red_icon.png">
       </cell>
       <cell class="module-item" title="我的订餐记录" is-link>

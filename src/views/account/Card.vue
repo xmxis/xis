@@ -1,27 +1,27 @@
 <template>
     <div>
 
-<div class="pt15 pr15 pl15 pb15">
-      
-          <div class="card-type pt20 pl20" v-for="item in cards" :class="item.status==1?inuse:nouse">
-                <div class="card-title">
-                    <div class="card-number">￥{{ item.balance }}</div>
-                    <div class="vertical-divide"></div>
-                    <div class="fs17">{{ getStatusName(item) }}</div>
-                </div>
-                <div>
-                  <span>开卡时间：</span>
-                  <span>{{ item.created_at }}</span>
-                </div>
-                <div class="card-btn-group">
-                    <div :class="item.status == 1?'':'nouse'" class="card-btn mr10">充值</div>
-                    <div class="card-btn" @click="$router.push({path: '/account/cardrecord',query:{cardId: item.id}})">交易记录</div>
-                </div>
-          </div>
+        <div class="pt15 pr15 pl15 pb15">
+              
+            <div class="card-type pt20 pl20" v-for="item in cards" :class="item.status==1?inuse:nouse">
+                  <div class="card-title">
+                      <div class="card-number">￥{{ item.balance }}</div>
+                      <div class="vertical-divide"></div>
+                      <div class="fs17">{{ getStatusName(item) }}</div>
+                  </div>
+                  <div>
+                    <span>开卡时间：</span>
+                    <span>{{ item.created_at }}</span>
+                  </div>
+                  <div class="card-btn-group">
+                      <div :class="item.status == 1?'':'nouse'" class="card-btn mr10">充值</div>
+                      <div class="card-btn" @click="$router.push({path: '/account/cardrecord',query:{cardId: item.id}})">交易记录</div>
+                  </div>
+            </div>
 
-         
+                 
 
-</div>
+        </div>
 
 
       <tool-bar></tool-bar>
@@ -92,3 +92,8 @@
 
     }
 </script>
+<style>
+  .weui-tabbar{
+    position: fixed;
+  }
+</style>
