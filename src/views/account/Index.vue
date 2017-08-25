@@ -56,6 +56,8 @@
         Request.get('/api/account/get-user', {}, function (data) {
           self.account = data;
           self.school = data.school;
+          localStorage.account_name = self.account.account_name;
+           localStorage.head_img_url = self.account.head_img_url;
         })
       }
     }
