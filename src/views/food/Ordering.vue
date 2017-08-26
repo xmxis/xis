@@ -25,7 +25,7 @@
             <div class="order-right-content-wrap">
               <div class="order-right-content borderbottom-f5"
                    v-for="item in setting.list">
-                <img src="../../assets/images/food1.png" class="w75 h75 pos-absolute">
+                <img :src="item.photo" class="w75 h75 pos-absolute">
                 <div class="food-intro">
                   <div class="food-title mmt2">{{item.food_name}}</div>
                   <div class="food-detail mt8">{{item.description}}</div>

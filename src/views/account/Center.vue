@@ -49,7 +49,6 @@
     methods:{    
       getUserInfo:function()
       {
-        console.log(localStorage);
         this.account_name = localStorage.getItem('account_name'); 
         this.head_img = localStorage.getItem('head_img_url'); 
       },
